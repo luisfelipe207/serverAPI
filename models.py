@@ -1,9 +1,5 @@
-from flask_sqlalchemy import SQLAlchemy
+from database import db  # Use a instância de db existente
 
-# Inicializando o banco de dados
-db = SQLAlchemy()
-
-# Definindo o modelo para o Lead
 class Lead(db.Model):
     __tablename__ = 'leads'
     id = db.Column(db.Integer, primary_key=True)
@@ -20,7 +16,6 @@ class Lead(db.Model):
         self.temperature = temperature
         self.interest = interest
 
-    # Função para retornar os dados como dicionário
     def as_dict(self):
         return {
             'id': self.id,
