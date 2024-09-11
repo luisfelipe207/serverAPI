@@ -16,8 +16,8 @@ def generate_leads():
         interest = random.choice(interests)
         email = random.choice(email)
         telephone = random.choice(telephone)
-        
-        lead = Lead(name, latitude, longitude, temperature, interest)
+
+        lead = Lead(name, latitude, longitude, temperature, interest, email, telephone)
         db.session.add(lead)
         db.session.commit()
 
