@@ -9,12 +9,14 @@ class Lead(db.Model):
     temperature = db.Column(db.Float, nullable=False)
     interest = db.Column(db.String(200), nullable=False)
 
-    def __init__(self, name, latitude, longitude, temperature, interest):
+    def __init__(self, name, latitude, longitude, temperature, interest, email, telephone):
         self.name = name
         self.latitude = latitude
         self.longitude = longitude
         self.temperature = temperature
         self.interest = interest
+        self.email = email
+        self.telefone = telephone
 
     def as_dict(self):
         return {
@@ -23,5 +25,7 @@ class Lead(db.Model):
             'latitude': self.latitude,
             'longitude': self.longitude,
             'temperature': self.temperature,
-            'interest': self.interest
+            'interest': self.interest,
+            'email': self.email,
+            'telephone': self.telephone
         }
