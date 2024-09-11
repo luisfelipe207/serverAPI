@@ -31,7 +31,9 @@ class LeadAPIHandler:
             latitude=data['latitude'],
             longitude=data['longitude'],
             temperature=data['temperature'],
-            interest=data['interest']
+            interest=data['interest'],
+            email=data['email'],
+            telephone=data['telephone']
         )
         return jsonify({"message": "Lead criado com sucesso!"}), 201
 
@@ -44,7 +46,9 @@ class LeadAPIHandler:
             latitude=data['latitude'],
             longitude=data['longitude'],
             temperature=data['temperature'],
-            interest=data['interest']
+            interest=data['interest'],
+            email=data['email'],
+            telephone=data['telephone']
         )
         return jsonify({"message": "Lead atualizado com sucesso!"})
 
