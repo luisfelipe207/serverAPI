@@ -16,7 +16,7 @@ class Lead(db.Model):
         self.temperature = temperature
         self.interest = interest
         self.email = email
-        self.telefone = telephone
+        self.telephone = telephone
 
     def as_dict(self):
         return {

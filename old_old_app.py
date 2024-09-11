@@ -29,7 +29,9 @@ def create_lead():
     	latitude=data['latitude'],
     	longitude=data['longitude'],
     	temperature=data['temperature'],
-    	interest=data['interest']
+    	interest=data['interest'],
+		email=data['email'],
+		telephone=data['telephone']
 	)
 	db.session.add(new_lead)
 	db.session.commit()
@@ -45,6 +47,8 @@ def update_lead(id):
 	lead.longitude = data['longitude']
 	lead.temperature = data['temperature']
 	lead.interest = data['interest']
+	lead.email = data['email']
+	lead.telephone = data['telephone']
 	db.session.commit()
 	return jsonify({"message": "Lead atualizado com sucesso!"})
 
