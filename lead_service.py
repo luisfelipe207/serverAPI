@@ -5,7 +5,15 @@ class LeadService:
         self.db = db
 
     def create_lead(self, name, latitude, longitude, temperature, interest, email, telephone):
-        lead = Lead(name=name, latitude=latitude, longitude=longitude, temperature=temperature, interest=interest, email=email, telephone=telephone)
+        lead = Lead(
+            name=name,
+            latitude=latitude,
+            longitude=longitude,
+            temperature=temperature,
+            interest=interest,
+            email=email,
+            telephone=telephone
+        )
         self.db.session.add(lead)
         self.db.session.commit()
 
