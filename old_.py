@@ -10,11 +10,11 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # Inicializando o banco de dados
 db.init_app(app)
 
-# Criando as tabelas e populando o banco de dados com leads fictícios
-with app.app_context():
-	db.create_all()
-	generate_leads()
-
 if __name__ == '__main__':
-	app.run(debug=True)
-	
+    # Criando as tabelas e populando o banco de dados com leads fictícios dentro do contexto da aplicação
+    with app.app_context():
+        db.create_all()
+        generate_leads()
+
+    # Executando a aplicação
+    app.run(debug=True)
