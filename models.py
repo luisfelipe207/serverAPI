@@ -8,7 +8,7 @@ class Lead(db.Model):
     longitude = db.Column(db.Float, nullable=False)
     temperature = db.Column(db.Float, nullable=False)
     interest = db.Column(db.String(200), nullable=False)
-    email = db.Column(db.String(120), unique= True, nullable=False)
+    email = db.Column(db.String(120), unique= False, nullable=False)
     telephone = db.Column(db.String(20), nullable=False)
 
     def __init__(self, name, latitude, longitude, temperature, interest, email, telephone):
