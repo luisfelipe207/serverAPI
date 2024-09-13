@@ -4,6 +4,10 @@ class LeadService:
     def __init__(self, db):
         self.db = db
 
+    def get_paginated_leads(self, page, per_page):
+        return Lead.query.paginate(page=page, per_page=per_page, error_out=False)
+
+
     def create_lead(self, name, latitude, longitude, temperature, interest, email, telephone):
         lead = Lead(
             name=name,

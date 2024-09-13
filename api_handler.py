@@ -13,6 +13,25 @@ class LeadAPIHandler:
         self.app.add_url_rule('/leads/<int:id>', view_func=self.update_lead, methods=['PUT'])
         self.app.add_url_rule('/leads/<int:id>', view_func=self.delete_lead, methods=['DELETE'])
 
+         # Retorna todos os leads com paginação
+    def get_leads(self):
+        # Obtém os parâmetros de consulta para página e número de resultados por página
+        page = request.args.get('page', 1, type=int)  # Página padrão é 1
+        per_page = request.args.get('per_page', 10, type=int)  # Número padrão de resultados por página é 10
+
+        # Consulta paginada
+        leads_paginated = self.lead_service.get_paginated_leads(page, per_page)
+
+        # Formata os resultados para JSON
+        response = { 
+            'leads': [lead.as_dict() for lead in leads_paginated.items],
+            'total': leads_paginated.total,
+            'page': leads_paginated.page,
+            'pages': leads_paginated.pages,
+            'per_page': leads_paginated.per_page
+        }
+        return jsonify(response)
+    
     # Retorna todos os leads
     def get_leads(self):
         leads = self.lead_service.get_all_leads()
